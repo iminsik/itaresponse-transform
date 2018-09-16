@@ -1,0 +1,309 @@
+<!DOCTYPE QPXQuery SYSTEM "http://dtd.itasoftware.com/QPXGeneral/V15.3.1/QPXGeneral.dtd"[]>
+<QPXQuery version="V15.3.1" queryID="_204255_31176bf43d1642eeb23ad25ad42cca3c" userID="alaskaair.com">
+  <QPXControlSpec>
+    <MessageSpec showAllErrors="YES" showAllWarnings="YES" />
+  </QPXControlSpec>
+  <QueryType name="USE-NEXT-FLIGHT-OUT-LOGIC" />
+  <QueryType name="ALLOW-CUBA-FLIGHTS" />
+  <LowFareSearch departureBuffer="60" outputFormat="XML" availabilityCheck="NORMAL" availabilityThreshold="CONSERVATIVE" enumerateAdjustments="YES" enumerateTaxes="YES">
+    <TripSpec>
+      <SliceSpec sliceIndex="0" maxSegmentsRelativeToMin="1" maxDuration="36.00" maxDurationRatioRelativeToMin="3.850">
+        <Origins>
+          <CityOrAirportCode preferCity="NO">SEA</CityOrAirportCode>
+        </Origins>
+        <Destinations>
+          <CityOrAirportCode preferCity="NO">LAX</CityOrAirportCode>
+        </Destinations>
+        <DepartureTimeRange>
+          <EarliestTime>2018-09-29T00:00</EarliestTime>
+          <LatestTime>2018-10-31T23:59</LatestTime>
+        </DepartureTimeRange>
+        <TreatCombinationsIndependently>
+          <TreatTimePeriodsIndependently>YES</TreatTimePeriodsIndependently>
+          <MinItinerariesPerCombination>30</MinItinerariesPerCombination>
+          <MaxItinerariesPerCombination>70</MaxItinerariesPerCombination>
+        </TreatCombinationsIndependently>
+        <MaxCircuity>4.500</MaxCircuity>
+      </SliceSpec>
+      <SliceItinerarySpec sliceIndex="1">
+        <SegmentSpec segmentIndex="0">
+          <FlightCode>
+            <CarrierCode>AS</CarrierCode>
+            <FlightNumber>287</FlightNumber>
+          </FlightCode>
+          <OriginAirport>LAX</OriginAirport>
+          <DestinationAirport>SEA</DestinationAirport>
+          <DepartureTime>2018-11-02T23:40</DepartureTime>
+        </SegmentSpec>
+        <SegmentAvailability segmentIndex="0" segmentGroup="0" bookingCodeCounts="A9|B9|C9|D9|E9|F9|G9|H9|I9|J9|K9|L9|M9|N9|O9|P9|Q9|R9|S9|T9|U9|V9|W9|X9|Y9|Z9" />
+      </SliceItinerarySpec>
+    </TripSpec>
+    <PaxSpec paxID="0">
+      <PaxTypeCode>ADT</PaxTypeCode>
+    </PaxSpec>
+    <PointOfSaleSpec>
+      <SalesCRS>1S</SalesCRS>
+      <SalesCarrier>AS</SalesCarrier>
+      <SaleByTravelAgency>NO</SaleByTravelAgency>
+      <CRSCarrierDepartmentCode>HDQ</CRSCarrierDepartmentCode>
+      <SalesCity>SEA</SalesCity>
+      <TicketingCity>SEA</TicketingCity>
+    </PointOfSaleSpec>
+    <SchedulerSpec>
+      <ProhibitedRouteLocales>
+        <CountryCode>PR</CountryCode>
+        <AirportCode>SJU</AirportCode>
+        <StateCode countryCode="US">HI</StateCode>
+      </ProhibitedRouteLocales>
+      <PermittedRouteLocales>
+        <CountryCode>US</CountryCode>
+        <AirportCode>YVR</AirportCode>
+      </PermittedRouteLocales>
+      <PermittedCarriers>
+        <CarrierCode>AS</CarrierCode>
+      </PermittedCarriers>
+      <PermittedAirportChangeLocales></PermittedAirportChangeLocales>
+      <MaxConnectionTime>23:59</MaxConnectionTime>
+    </SchedulerSpec>
+    <PricingSpec>
+      <ValidatingCarrierSpec>
+        <PermittedValidatingCarriers>
+          <CarrierCode>AS</CarrierCode>
+        </PermittedValidatingCarriers>
+      </ValidatingCarrierSpec>
+      <PricingPaxSpec>
+        <AllPaxInSameCabin>YES</AllPaxInSameCabin>
+        <AllPaxUseSameBCs>YES</AllPaxUseSameBCs>
+        <AllPaxUseSameFares>YES</AllPaxUseSameFares>
+      </PricingPaxSpec>
+      <PricingModifiers>
+        <ProhibitedCabins>
+          <CabinType>BUSINESS</CabinType>
+        </ProhibitedCabins>
+      </PricingModifiers>
+      <PricingRestrictions>
+        <ProhibitCompanionFares>YES</ProhibitCompanionFares>
+        <ProhibitMultiSliceFares>YES</ProhibitMultiSliceFares>
+        <ETicketing>REQUIRED</ETicketing>
+      </PricingRestrictions>
+      <FaringSpec>
+        <FareSpec carrierCode="AS" />
+        <FaringGroup isNegated="YES" operator="OR">
+          <FareSpec fareCode="F" />
+          <FareSpec fareCode="FF" />
+          <FareSpec fareCode="Y" />
+          <FareSpec fareCode="YY" />
+        </FaringGroup>
+      </FaringSpec>
+    </PricingSpec>
+    <EnumerationSpec>
+      <SellupSolutionGroup>
+        <SolutionGroup>
+          <ValueFunctionSpec index="0" name="CHEAPEST" count="33">
+            <DiversityStrategy name="SLICE-0-DATE" />
+          </ValueFunctionSpec>
+          <ValueFunctionSpec index="1" name="CHEAPEST" count="33">
+            <Constraints applyToSlices="0">
+              <ProhibitedRecord1FareTypes>
+                <Record1FareType>ERT</Record1FareType>
+                <Record1FareType>FOX</Record1FareType>
+                <Record1FareType>FX</Record1FareType>
+              </ProhibitedRecord1FareTypes>
+            </Constraints>
+            <DiversityStrategy name="SLICE-0-DATE" />
+          </ValueFunctionSpec>
+          <ValueFunctionSpec index="2" name="CHEAPEST" count="33">
+            <Constraints applyToSlices="0">
+              <PermittedCarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <OperationalCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </OperationalCarrier>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <OperationalCarrier>
+                    <CarrierCode>QX</CarrierCode>
+                  </OperationalCarrier>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <OperationalCarrier>
+                    <CarrierCode>VX</CarrierCode>
+                  </OperationalCarrier>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <MinFlightNumber>3300</MinFlightNumber>
+                  <MaxFlightNumber>3499</MaxFlightNumber>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <MinFlightNumber>9320</MinFlightNumber>
+                  <MaxFlightNumber>9339</MaxFlightNumber>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <MinFlightNumber>3275</MinFlightNumber>
+                  <MaxFlightNumber>3299</MaxFlightNumber>
+                </CarrierFlights>
+                <CarrierFlights>
+                  <MarketingCarrier>
+                    <CarrierCode>AS</CarrierCode>
+                  </MarketingCarrier>
+                  <MinFlightNumber>9280</MinFlightNumber>
+                  <MaxFlightNumber>9299</MaxFlightNumber>
+                </CarrierFlights>
+              </PermittedCarrierFlights>
+            </Constraints>
+            <DiversityStrategy name="SLICE-0-DATE" />
+          </ValueFunctionSpec>
+        </SolutionGroup>
+        <ValueFunctionSpec index="0" name="CHEAPEST">
+          <Constraints applyToSlices="0">
+            <ProhibitedRecord1FareTypes>
+                <Record1FareType>EOU</Record1FareType>
+            </ProhibitedRecord1FareTypes>
+          </Constraints>
+        </ValueFunctionSpec>
+        <ValueFunctionSpec index="1" name="CHEAPEST">
+          <Constraints applyToSlices="0">
+            <PermittedCustomFareClasses>
+              <CustomFareClass>REC1-FIRST-FARE</CustomFareClass>
+            </PermittedCustomFareClasses>
+          </Constraints>
+        </ValueFunctionSpec>
+      </SellupSolutionGroup>
+      <SolutionGroup>
+        <ValueFunctionSpec index="0" name="CHEAPEST" count="33">
+          <Constraints applyToSlices="0">
+            <PermittedCustomFareClasses>
+              <CustomFareClass>REC1-FIRST-FARE</CustomFareClass>
+            </PermittedCustomFareClasses>
+          </Constraints>
+          <DiversityStrategy name="SLICE-0-DATE" />
+        </ValueFunctionSpec>
+        <ValueFunctionSpec index="1" name="CHEAPEST" count="33">
+          <Constraints applyToSlices="0">
+            <PermittedCarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <OperationalCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </OperationalCarrier>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <OperationalCarrier>
+                  <CarrierCode>QX</CarrierCode>
+                </OperationalCarrier>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <OperationalCarrier>
+                  <CarrierCode>VX</CarrierCode>
+                </OperationalCarrier>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <MinFlightNumber>3300</MinFlightNumber>
+                <MaxFlightNumber>3499</MaxFlightNumber>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <MinFlightNumber>9320</MinFlightNumber>
+                <MaxFlightNumber>9339</MaxFlightNumber>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <MinFlightNumber>3275</MinFlightNumber>
+                <MaxFlightNumber>3299</MaxFlightNumber>
+              </CarrierFlights>
+              <CarrierFlights>
+                <MarketingCarrier>
+                  <CarrierCode>AS</CarrierCode>
+                </MarketingCarrier>
+                <MinFlightNumber>9280</MinFlightNumber>
+                <MaxFlightNumber>9299</MaxFlightNumber>
+              </CarrierFlights>
+            </PermittedCarrierFlights>
+            <PermittedCustomFareClasses>
+              <CustomFareClass>REC1-FIRST-FARE</CustomFareClass>
+            </PermittedCustomFareClasses>
+          </Constraints>
+          <DiversityStrategy name="SLICE-0-DATE" />
+        </ValueFunctionSpec>
+      </SolutionGroup>
+    </EnumerationSpec>
+    <OutputSpec>
+      <OutputSelector precedence="1" include="YES" select="SegmentAvailability" />
+      <OutputSelector precedence="1" include="YES" select="FareInfo/@rkey" />
+      <OutputSelector precedence="1" include="YES" select="FareInfo/@record1FareType" />
+      <OutputSelector precedence="1" include="YES" select="FareInfo/@fareTag" />
+      <OutputSelector precedence="1" include="YES" select="Endorsement" />
+      <OutputSelector precedence="1" include="NO" select="Endorsement/@boxes" />
+      <OutputSelector precedence="1" include="YES" select="TaxInfo/@status" />
+      <OutputSelector precedence="1" include="YES" select="TaxInfo/CalculationMethod" />
+      <OutputSelector precedence="1" include="YES" select="TaxInfo/PenaltyReference" />
+      <OutputSelector precedence="1" include="YES" select="TaxInfo/@taxKey" />
+      <OutputSelector precedence="1" include="YES" select="Tax/@taxKey" />
+      <OutputSelector precedence="1" include="YES" select="Penalties/ChangePenalty" />
+      <OutputSelector precedence="1" include="YES" select="OnTimePerformance/@percentOnTime" />
+      <OutputSelector precedence="1" include="YES" select="OnTimePerformance/@percentThirtyMinutesLate" />
+      <OutputSelector precedence="1" include="YES" select="OnTimePerformance/@percentCanceled" />
+      <OutputSelector precedence="1" include="YES" select="OnTimePerformance/@highlightRequired" />
+      <OutputSelector precedence="1" include="YES" select="PaxPricingInfo/WaiverInfo" />
+      <OutputSelector precedence="1" include="YES" select="WaiverInfo/WaiverCode" />
+      <OutputSelector precedence="1" include="YES" select="LegConnectionInfo/@changeOfPlane" />
+      <OutputSelector precedence="0" include="YES" select="LegInfo/CheckinInfo" />
+      <OutputSelector precedence="0" include="YES" select="SharedObjectDatabase" />
+      <OutputSelector precedence="1" include="YES" select="SliceItineraryInfo/@hash" />
+      <OutputSelector precedence="1" include="YES" select="SegmentInfo/@hash" />
+      <OutputSelector precedence="1" include="NO" select="Note" />
+      <OutputSelector precedence="1" include="NO" select="AvailabilityStatus" />
+      <OutputSelector precedence="1" include="YES" select="LegConnectionInfo" />
+      <OutputSelector precedence="1" include="NO" select="SegmentConnectionInfo" />
+      <OutputSelector precedence="1" include="NO" select="SliceConnectionInfo" />
+      <OutputSelector precedence="1" include="YES" select="ResultSetFooter" />
+      <OutputSelector precedence="1" include="YES" select="QueryDuration" />
+      <OutputSelector precedence="1" include="YES" select="BookingInfo/@marriedSegmentIndex" />
+      <OutputSelector precedence="1" include="YES" select="BookingInfo/@segmentGroup" />
+      <OutputSelector precedence="1" include="YES" select="BookingInfo/@availabilityType" />
+      <OutputSelector precedence="1" include="YES" select="ResultSetHeader/ErrorMessage" />
+      <OutputSelector precedence="1" include="YES" select="ResultSetHeader/ServerMessage" />
+      <OutputSelector precedence="1" include="YES" select="ResultSetHeader/AncillaryData" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/Carrier" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/Currency" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/Aircraft" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/Country" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/State" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/City" />
+      <OutputSelector precedence="1" include="NO" select="AncillaryData/Airport" />
+    </OutputSpec>
+  </LowFareSearch>
+</QPXQuery>
