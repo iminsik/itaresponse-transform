@@ -11,11 +11,11 @@
         <SegmentSpec segmentIndex="0">
           <FlightCode>
             <CarrierCode>AS</CarrierCode>
-            <FlightNumber>466</FlightNumber>
+            <FlightNumber>286</FlightNumber>
           </FlightCode>
           <OriginAirport>SEA</OriginAirport>
           <DestinationAirport>LAX</DestinationAirport>
-          <DepartureTime>2018-09-29T05:30</DepartureTime>
+          <DepartureTime>2018-09-30T05:00</DepartureTime>
         </SegmentSpec>
         <SegmentAvailability segmentIndex="0" segmentGroup="0" bookingCodeCounts="A9|B9|C9|D9|E9|F9|G9|H9|I9|J9|K9|L9|M9|N9|O9|P9|Q9|R9|S9|T9|U9|V9|W9|X9|Y9|Z9" />
       </SliceItinerarySpec>
@@ -173,6 +173,13 @@
           </ValueFunctionSpec>
         </SolutionGroup>
         <ValueFunctionSpec index="0" name="CHEAPEST">
+          <Constraints applyToSlices="1">
+            <ProhibitedRecord1FareTypes>
+                <Record1FareType>EOU</Record1FareType>
+            </ProhibitedRecord1FareTypes>
+          </Constraints>
+        </ValueFunctionSpec>
+        <ValueFunctionSpec index="1" name="CHEAPEST">
           <Constraints applyToSlices="1">
             <PermittedCustomFareClasses>
               <CustomFareClass>REC1-FIRST-FARE</CustomFareClass>
